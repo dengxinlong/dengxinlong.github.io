@@ -6,20 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>remove的简单使用 | 爱吃青菜的咸鱼</title>
+  <title>APUE学习笔记: UNIXX基础知识 | 爱吃青菜的咸鱼</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="remove简介remove原型">
-<meta name="keywords" content="C++,编程,remove">
+  <meta name="description" content="unix体系结构在unix体系结构中，一般称作GNU内核，但目前流行的叫法是GNU/linux操作系统，这也是可以的，并且也更加清晰。">
+<meta name="keywords" content="APUE">
 <meta property="og:type" content="article">
-<meta property="og:title" content="remove的简单使用">
-<meta property="og:url" content="http://yoursite.com/2019/08/08/remove的简单使用/index.html">
+<meta property="og:title" content="APUE学习笔记: UNIXX基础知识">
+<meta property="og:url" content="http://yoursite.com/2019/09/14/APUE学习笔记-UNIX基础知识/index.html">
 <meta property="og:site_name" content="爱吃青菜的咸鱼">
-<meta property="og:description" content="remove简介remove原型">
+<meta property="og:description" content="unix体系结构在unix体系结构中，一般称作GNU内核，但目前流行的叫法是GNU/linux操作系统，这也是可以的，并且也更加清晰。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-08-08T12:54:04.292Z">
+<meta property="og:updated_time" content="2019-09-14T15:28:05.793Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="remove的简单使用">
-<meta name="twitter:description" content="remove简介remove原型">
+<meta name="twitter:title" content="APUE学习笔记: UNIXX基础知识">
+<meta name="twitter:description" content="unix体系结构在unix体系结构中，一般称作GNU内核，但目前流行的叫法是GNU/linux操作系统，这也是可以的，并且也更加清晰。">
   
     <link rel="alternative" href="/atom.xml" title="爱吃青菜的咸鱼" type="application/atom+xml">
   
@@ -159,38 +159,38 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-remove的简单使用" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-APUE学习笔记-UNIX基础知识" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      remove的简单使用
+      APUE学习笔记: UNIXX基础知识
     </h1>
   
 
         
-        <a href="/2019/08/08/remove的简单使用/" class="archive-article-date">
-  	<time datetime="2019-08-08T12:32:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-08</time>
+        <a href="/2019/09/14/APUE学习笔记-UNIX基础知识/" class="archive-article-date">
+  	<time datetime="2019-09-14T10:33:07.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-14</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h4 id="remove简介"><a href="#remove简介" class="headerlink" title="remove简介"></a>remove简介</h4><p><strong>remove原型</strong>  </p>
-<a id="more"></a>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">template</span>&lt; <span class="class"><span class="keyword">class</span> <span class="title">ForwardIt</span>, <span class="title">class</span> <span class="title">T</span> &gt;</span></span><br><span class="line"><span class="class"><span class="title">ForwardIt</span> <span class="title">remove</span>( <span class="title">ForwardIt</span> <span class="title">first</span>, <span class="title">ForwardIt</span> <span class="title">last</span>, <span class="title">const</span> <span class="title">T</span>&amp; <span class="title">value</span> );</span></span><br></pre></td></tr></table></figure>
+        <h4 id="unix体系结构"><a href="#unix体系结构" class="headerlink" title="unix体系结构"></a>unix体系结构</h4><p>在unix体系结构中，一般称作GNU内核，但目前流行的叫法是GNU/linux操作系统，这也是可以的，并且也更加清晰。 <a id="more"></a> 在unix系统中，系统一般称作内核，内核向上提供系统调用供用户使用，用户可以基于系统调用来使用内核；同时，公用函数库使用了一般会系统调用，这时的函数库也可以提供给用户使用，并且这时的函数库相比较系统调用功能更加强大，毕竟其是系统调用的部分集合，系统调用其实就是内核提供用户最基本的操作。这时的用户既可以基于系统调用来使用内核资源，也可以使用库函数来使用内核资源。不过当我们要完成某种特定的需求时，有时只有系统调用才能满足我们的需求，这时不得不使用系统调用，并且系统调用更加接近底层，便于我们了解内核的工作机制，从而充分理解操作系统知识。  </p>
+<h4 id="文件和目录"><a href="#文件和目录" class="headerlink" title="文件和目录"></a>文件和目录</h4><h5 id="文件系统"><a href="#文件系统" class="headerlink" title="文件系统"></a>文件系统</h5><p>unix中，文件和目录是一种层次结构，所有东西的起点是称为根(root)的目录，也就是(/)；目录是一个包含目录项的文件(对于unix系统而言，一切皆文件)，在逻辑上可以认为每个目录项都包含一个文件名，同时还包含说明该文件属性的信息，包括文件名，文件类型，文件大小，文件所有者，文件权限以及最后修改时间等，state和fstate系统调用就是用于返回包含上述信息的。</p>
+<h5 id="文件名"><a href="#文件名" class="headerlink" title="文件名"></a>文件名</h5><p>unix文件名中，.和..分别代表当前目录和父目录；当我们给一个文件安排名字时，不能使用空格和/字符，这两个字符是用于终止一个路径名和分割文件路径的，标准POSIX规定只能只用字母，数字，-和_个文件命名；在早期的unix系统中，文件名的长度不能超过14个字符，现在一般unix文件名的长度支持超过255个字符  </p>
+<p><strong>ls命令的简单实现</strong></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;unistd.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/type.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;dirent.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> * argv[])</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    DIR * dp;</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">dirent</span> * <span class="title">dirp</span>;</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (argc != <span class="number">2</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"argument is error.\n"</span>);</span><br><span class="line">        <span class="built_in">exit</span>(<span class="number">-1</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> ((dp = opendir(argv[<span class="number">1</span>])) == <span class="literal">NULL</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        perror(<span class="string">"opendir"</span>);</span><br><span class="line">        <span class="built_in">exit</span>(<span class="number">-1</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> ((dirp = readdir(dp)) != <span class="literal">NULL</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%s\n"</span>, dirp-&gt;d_name);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    closedir(dp);</span><br><span class="line">    <span class="built_in">exit</span>(<span class="number">0</span>);</span><br><span class="line">&#125;  </span><br><span class="line">```  </span><br><span class="line">说明：opendir函数返回一个DIR指针，用于指向已经刚刚打开的目录流，使用readdir来获取该目录项中的内容，此时readdir函数返回<span class="class"><span class="keyword">struct</span> <span class="title">dirent</span> 指针，此指针包含了目录项中的文件名，文件<span class="title">inode</span>值，这时可以使用<span class="title">state</span>来获取某个文件的各种属性信息；最后使用<span class="title">closedir</span>来关闭该目录  </span></span><br><span class="line"><span class="class">#### 输入和输出</span></span><br><span class="line"><span class="class">##### 文件描述符</span></span><br><span class="line"><span class="class">文件描述符是<span class="title">unix</span>中一个小整数，内核用于表示当前进程正在访问的文件，当内核打开一个现有文件和创建一个文件时，将会返回该文件的文件描述符，之后可以利用该文件描述符来对该文件进行读，写操作</span></span><br><span class="line"><span class="class">##### 标准输入，标准输出，标准错误</span></span><br><span class="line"><span class="class"><span class="title">unix</span>中，标准输入，标准输出和标准错误的文件描述符是0,1,2，一般使用宏定义来更加直观的表示，分别是<span class="title">STDIN_FILENO</span>, <span class="title">STDOUT_FILENO</span>, <span class="title">STDERR_FILENO</span>；对应的文件指针分别是<span class="title">stdin</span>, <span class="title">stdout</span>, <span class="title">stderr</span>。一般我们开始一个进程的时候，都会打开这三个文件，如果没有进行特殊的操作，这三个文件表示键盘，屏幕，屏幕   </span></span><br><span class="line"><span class="class">##### 不带缓冲区的<span class="title">I</span>/<span class="title">O</span>，</span></span><br><span class="line"><span class="class">不带缓冲区的<span class="title">io</span>函数，一般是值从文件中读取数据不会放入缓冲区中，而是直接从文件中读取到内存中，<span class="title">open</span>, <span class="title">write</span>, <span class="title">read</span>, <span class="title">lseek</span>函数提供的就是不带缓冲区的<span class="title">io</span>系统调用，这些函数都是基于文件描述符来操作的</span></span><br><span class="line"><span class="class">```<span class="title">c</span></span></span><br><span class="line"><span class="class">#<span class="title">include</span> &lt;stdio.h&gt;</span></span><br><span class="line"><span class="class">#<span class="title">include</span> &lt;stdlib.h&gt;</span></span><br><span class="line"><span class="class">#<span class="title">include</span> &lt;unistd.h&gt;</span></span><br><span class="line"><span class="class">#<span class="title">include</span> &lt;string.h&gt;</span></span><br><span class="line"><span class="class"></span></span><br><span class="line"><span class="class">#<span class="title">define</span> <span class="title">BUFFSIZE</span> 1024</span></span><br><span class="line"><span class="class"></span></span><br><span class="line"><span class="class"><span class="title">int</span> <span class="title">main</span>(<span class="title">void</span>)</span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">int</span> size;</span><br><span class="line">    <span class="keyword">char</span> buf[BUFFSIZE];</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> ((n = read(STDIN_FILENO, buf, BUFFSIZE)) &gt; <span class="number">0</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> ((write(STDOUT_FILENO, buf, BUFFSIZE)) != n)</span><br><span class="line">        &#123;</span><br><span class="line">            perror(<span class="string">"write"</span>);</span><br><span class="line">            <span class="built_in">exit</span>(<span class="number">-1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (n &lt; <span class="number">0</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"read error.\n"</span>);</span><br><span class="line">        <span class="built_in">exit</span>(<span class="number">-1</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">exit</span>(<span class="number">0</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>remove操作是STL库中用于改变容器使用的，不过其并没有删除数据，只是把我们需要留住的数据放置在容器的前面，不需要的数据放置在容器后面，同时返回第二个序列的第一个位置迭代器，这时我们可以通过容器自身的成员函数删除我们不需要的元素，以达到删除元素的效果。<br><strong>remove的一个简单实现</strong></p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">template</span>&lt; <span class="class"><span class="keyword">class</span> <span class="title">ForwardIt</span>, <span class="title">class</span> <span class="title">T</span> &gt;</span></span><br><span class="line"><span class="class"><span class="title">ForwardIt</span> <span class="title">remove</span>(<span class="title">ForwardIt</span> <span class="title">first</span>, <span class="title">ForwardIt</span> <span class="title">last</span>, <span class="title">const</span> <span class="title">T</span>&amp; <span class="title">value</span>)</span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    first = <span class="built_in">std</span>::find(first, last, value);</span><br><span class="line">    <span class="keyword">if</span> (first != last)</span><br><span class="line">        <span class="keyword">for</span>(ForwardIt i = first; ++i != last; )</span><br><span class="line">            <span class="keyword">if</span> (!(*i == value))</span><br><span class="line">                *first++ = <span class="built_in">std</span>::move(*i);</span><br><span class="line">    <span class="keyword">return</span> first;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>说明：本程序是对write和read系统调用的基本使用，只是在使用系统调用的时候需要注意的是，要判断系统调用的返回值是不是对的，不对要进行及时的处理，避免后面的代码受到影响和程序直接奔溃，一般而言，系统调用成功返回0，失败返回非0，这时的非0数字就是errorno，这里的errrorno是内核已经设计好的，perror可以根据当前的errorno来输出错误信息，便于我们进行出错处理。</p>
+<h4 id="程序和进程"><a href="#程序和进程" class="headerlink" title="程序和进程"></a>程序和进程</h4><p>程序是一段存于磁盘上某个目录中的可执行文件。内核通过exec函数族，将程序读入内存中，从而使得程序变成了进程</p>
+<h5 id="进程控制函数"><a href="#进程控制函数" class="headerlink" title="进程控制函数"></a>进程控制函数</h5><p>进程控制函数包括fork，waitpid，exec函数族，这里通过下面的代码来展示</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;unistd.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/types.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">char</span> buf[MAXLINE];</span><br><span class="line">    <span class="keyword">pid_t</span> pid;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> status;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%% "</span>);</span><br><span class="line">    <span class="keyword">while</span> (fgets(buf, MAXLINE, <span class="built_in">stdin</span>) != <span class="literal">NULL</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (buf[<span class="built_in">strlen</span>[buf] - <span class="number">1</span>] == <span class="string">'\n'</span>)</span><br><span class="line">            buf[<span class="built_in">strlen</span>[buf - <span class="number">1</span>]] = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">if</span> ((pid = fork()) &lt; <span class="number">0</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            perror(<span class="string">"fork"</span>);</span><br><span class="line">            <span class="built_in">exit</span>(<span class="number">-1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (pid == <span class="number">0</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            execlp(buf, buf, (<span class="keyword">char</span> *)<span class="literal">NULL</span>);</span><br><span class="line">        &#125;  </span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> ((pid = waitpid(pid, &amp;status, <span class="number">0</span>)) &lt; <span class="number">0</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            perror(<span class="string">"waitpid"</span>);   </span><br><span class="line">            <span class="built_in">exit</span>(<span class="number">-1</span>);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%% "</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">exit</span>(<span class="number">0</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>####示例代码</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iterator&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="built_in">std</span>::<span class="built_in">vector</span>;</span><br><span class="line"><span class="keyword">using</span> <span class="built_in">std</span>::<span class="built_in">cout</span>;</span><br><span class="line"><span class="keyword">using</span> <span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">test0</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; vec = &#123;<span class="number">1</span>, <span class="number">3</span>, <span class="number">5</span>, <span class="number">0</span>, <span class="number">3</span>, <span class="number">6</span>, <span class="number">8</span>, <span class="number">1</span>, <span class="number">4</span>&#125;;</span><br><span class="line">    <span class="built_in">std</span>::copy(vec.begin(), vec.end(), <span class="built_in">std</span>::ostream_iterator&lt;<span class="keyword">int</span>&gt;(<span class="built_in">cout</span>, <span class="string">" "</span>));</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">if</span> 0</span></span><br><span class="line">    <span class="built_in">std</span>::remove(vec.begin(), vec.end(), <span class="number">1</span>);                 <span class="comment">//remove本质上并没有删除元素，只是把不符合条件的元素移动到序列的前面，</span></span><br><span class="line">    <span class="built_in">std</span>::copy(vec.begin(), vec.end(), <span class="built_in">std</span>::ostream_iterator&lt;<span class="keyword">int</span>&gt;(<span class="built_in">cout</span>, <span class="string">" "</span>));           </span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line">    <span class="keyword">typename</span> <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;::iterator iter = <span class="built_in">std</span>::remove(vec.begin(), vec.end(), <span class="number">1</span>);           <span class="comment">//要删除元素还需要通过容器测成员函数erase</span></span><br><span class="line">    vec.erase(iter, vec.end());</span><br><span class="line">    <span class="built_in">std</span>::copy(vec.begin(), vec.end(), <span class="built_in">std</span>::ostream_iterator&lt;<span class="keyword">int</span>&gt;(<span class="built_in">cout</span>, <span class="string">" "</span>));</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">//test0();</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>被注释掉的代码可以看到使用remove没有删除元素，而是把需要删除的元素放置在的后面，后面的这段代码配合这容器自身的成员函数erase，则可以真正删除元素。这是我们在使用remove需要注意的问题；这里我们或许会思考，为什么STL不直接把元素删除呢，反而感觉像欺骗我们呢，这就涉及迭代器失效问题了，如果在实现remove时，直接删除元素，要知道STL库要为所有的容器考虑，可能某种容器在缩小容器的size时，导致容器在内存中存放的位置换了一个地方，这时在刚开始传入remove的迭代器将会失效，也就是无法通过刚开始传入的迭代器遍历整个容器了。迭代器失效的问题将在下一小节初探。</p>
-<p>============本文结束==================</p>
+<p>说明：从上面的代码中可以知道，fgets函数从标准输入中读取命令，然后创建子进程，子进程通过execlp函数来拉起一个进程，该进程就是之前输入的命令，然后父进程使用waitpid来等待子进程的结束，不然该进程会成为僵尸进程(就是没有人回收该子进程的资源，需要父进程的父进程来回收，最终可能会有init进程来回收，这是我们不希望发生的)。然后循环输入我们需要使用的命令，使用ctrl + D来结束while循环，ctrl+D模拟的是文件的结束标志，在这里体现的是fgets函数返回NULL，在其他地方可能体现的是EOF标志。</p>
 
       
 
@@ -225,15 +225,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C++</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">编程</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">remove</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">APUE</a>
         		</li>
       		
 		</ul>
@@ -245,7 +237,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/C//" class="article-tag-list-link color5">/C++</a>
+        			<a href="/categories/unix//" class="article-tag-list-link color5">unix</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/unix/基础知识//" class="article-tag-list-link color5">基础知识</a>
         		</li>
       		
 		</ul>
@@ -300,7 +296,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/08/08/remove的简单使用/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/09/14/APUE学习笔记-UNIX基础知识/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -314,18 +310,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2019/08/08/迭代器失效问题/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          迭代器失效问题
-        
-      </div>
-    </a>
   
-  
-    <a href="/2019/08/08/多态相关/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">多态相关</div>
+    <a href="/2019/08/09/vector的简单实现-利用allocator/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">vector的简单实现--利用allocator</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -356,8 +343,8 @@
   <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
 <script>
   var cloudTieConfig = {
-    url: "http://yoursite.com/2019/08/08/remove的简单使用/", 
-    sourceId: "remove的简单使用",
+    url: "http://yoursite.com/2019/09/14/APUE学习笔记-UNIX基础知识/", 
+    sourceId: "APUE学习笔记-UNIX基础知识",
     productKey: "true",
     target: "cloud-tie-wrapper"
   };
