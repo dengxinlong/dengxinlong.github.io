@@ -6,19 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Tag: 继承 | 爱吃青菜的咸鱼</title>
+  <title>vector的简单实现--利用allocator | 爱吃青菜的咸鱼</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="身处何方，不忘初心">
-<meta name="keywords" content="后端,C&#x2F;C++,开发者,程序猿,极客,编程,代码,开源,IT网站,Developer,Programmer,Coder,Geek,html,linux,用户体验">
-<meta property="og:type" content="website">
-<meta property="og:title" content="爱吃青菜的咸鱼">
-<meta property="og:url" content="http://yoursite.com/tags/继承/index.html">
+  <meta name="description" content="vector简介vector是C++的STL库中的一种容器，这种容器是一种模板类，可以存放任意类型的数据，同时可以进行动态扩容，可以说是一种动">
+<meta name="keywords" content="C++,编程,vector">
+<meta property="og:type" content="article">
+<meta property="og:title" content="vector的简单实现--利用allocator">
+<meta property="og:url" content="http://yoursite.com/2019/08/09/vector的简单实现-利用allocator/index.html">
 <meta property="og:site_name" content="爱吃青菜的咸鱼">
-<meta property="og:description" content="身处何方，不忘初心">
+<meta property="og:description" content="vector简介vector是C++的STL库中的一种容器，这种容器是一种模板类，可以存放任意类型的数据，同时可以进行动态扩容，可以说是一种动">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-08-09T14:44:43.046Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="爱吃青菜的咸鱼">
-<meta name="twitter:description" content="身处何方，不忘初心">
+<meta name="twitter:title" content="vector的简单实现--利用allocator">
+<meta name="twitter:description" content="vector简介vector是C++的STL库中的一种容器，这种容器是一种模板类，可以存放任意类型的数据，同时可以进行动态扩容，可以说是一种动">
   
     <link rel="alternative" href="/atom.xml" title="爱吃青菜的咸鱼" type="application/atom+xml">
   
@@ -158,36 +159,59 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-vector的简单实现-利用allocator" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/08/08/多态相关/" class="archive-article-date">
-  	<time datetime="2019-08-08T09:03:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-08</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/08/08/多态相关/">多态相关</a>
+    <h1 class="article-title" itemprop="name">
+      vector的简单实现--利用allocator
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2019/08/09/vector的简单实现-利用allocator/" class="archive-article-date">
+  	<time datetime="2019-08-09T13:47:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-09</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="vector简介"><a href="#vector简介" class="headerlink" title="vector简介"></a>vector简介</h4><p>vector是C++的STL库中的一种容器，这种容器是一种模板类，可以存放任意类型的数据，同时可以进行动态扩容，可以说是一种动<a id="more"></a>态数组，我们知道C语言中的数组是不能动态扩充的，其在编译时就已经决定了数组的大小。而vector之所以可以进行动态扩充这就涉及到vector的底层实现了，我们对任意个vector容器使用sizeof测量其大小，会发现每个vector的大小都是24(在64位系统中)，这是因为我们在实例化一个vector对象时，会在栈中存放三个指针，分别是_start, _finish, _end_of_storage，但这三个指针是vector类的私有数据成员，我们不能访问，但可以使用vector提供的各种方法。_start指向堆空间的开始处，_finish指向真正存储数据的最后一个位置的下一个位置，_end_of_storage指向真正为vector分配空间的最后一个位置的下一个位置。当我们往vector插入数据时，如果空间不够了，则vector会自动为我们扩充空间，这时的capacity &gt; size，并且按照2的次幂进行扩充。</p>
+<h4 id="vector简单实现"><a href="#vector简单实现" class="headerlink" title="vector简单实现"></a>vector简单实现</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;memory&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line"><span class="keyword">using</span> <span class="built_in">std</span>::<span class="built_in">cout</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span> &lt;<span class="class"><span class="keyword">class</span> <span class="title">T</span>&gt;</span></span><br><span class="line"><span class="class"><span class="title">class</span> <span class="title">My_vector</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="keyword">using</span> iterator = T *;</span><br><span class="line">    <span class="keyword">using</span> const_iterator = <span class="keyword">const</span> T *;</span><br><span class="line"></span><br><span class="line">    My_vector()</span><br><span class="line">    : _start(<span class="literal">nullptr</span>)</span><br><span class="line">    , _finish(<span class="literal">nullptr</span>)</span><br><span class="line">    , _end_of_storage(<span class="literal">nullptr</span>)</span><br><span class="line">    &#123;&#125;</span><br><span class="line"></span><br><span class="line">    ~My_vector()</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (_start)</span><br><span class="line">            <span class="keyword">while</span> (_start != _finish)</span><br><span class="line">                _allocator.destroy(--_finish);          <span class="comment">//销毁对象</span></span><br><span class="line">        _allocator.deallocate(_start, capacity());          <span class="comment">//销毁存储空间</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function">iterator <span class="title">begin</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> _start;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function">iterator <span class="title">end</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> _finish;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">size_t</span> size(<span class="keyword">void</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">return</span> _finish - _start;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">size_t</span> capacity(<span class="keyword">void</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">return</span> _end_of_storage - _start;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    T &amp; <span class="keyword">operator</span>[](<span class="keyword">size_t</span> index)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">return</span> *(_start + index);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">push_back</span><span class="params">(<span class="keyword">const</span> T &amp; value)</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">pop_back</span><span class="params">(<span class="keyword">void</span>)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">reallocate</span><span class="params">(<span class="keyword">void</span>)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="keyword">static</span> <span class="built_in">std</span>::allocator&lt;T&gt; _allocator;</span><br><span class="line">    <span class="comment">//std::allocator&lt;T&gt; _allocator;</span></span><br><span class="line">    iterator _start;</span><br><span class="line">    iterator _finish;</span><br><span class="line">    iterator _end_of_storage;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span> &lt;<span class="class"><span class="keyword">class</span> <span class="title">T</span>&gt;</span></span><br><span class="line"><span class="class"><span class="title">std</span>:</span>:allocator&lt;T&gt; My_vector&lt;T&gt;::_allocator;</span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span> &lt;<span class="class"><span class="keyword">class</span> <span class="title">T</span>&gt;</span></span><br><span class="line"><span class="class"><span class="title">void</span> <span class="title">My_vector</span>&lt;T&gt;:</span>:push_back(<span class="keyword">const</span> T &amp; value)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span> (size() == capacity())</span><br><span class="line">        reallocate();           <span class="comment">//容量不够，需要重新申请空间</span></span><br><span class="line">    _allocator.construct(_finish++, value);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span> &lt;<span class="class"><span class="keyword">class</span> <span class="title">T</span>&gt;</span></span><br><span class="line"><span class="class"><span class="title">void</span> <span class="title">My_vector</span>&lt;T&gt;:</span>:pop_back(<span class="keyword">void</span>)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span> (size() &gt; <span class="number">0</span>)</span><br><span class="line">        _allocator.destroy(--_finish);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span> &lt;<span class="class"><span class="keyword">class</span> <span class="title">T</span>&gt;</span></span><br><span class="line"><span class="class"><span class="title">void</span> <span class="title">My_vector</span>&lt;T&gt;:</span>:reallocate(<span class="keyword">void</span>)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">size_t</span> cap = capacity();</span><br><span class="line">    <span class="keyword">size_t</span> new_cap = cap * <span class="number">2</span> &gt; <span class="number">0</span> ? cap * <span class="number">2</span> : <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">    iterator new_start = _allocator.allocate(new_cap);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (_start)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">std</span>::uninitialized_copy(_start, _finish, new_start);            <span class="comment">//开辟空间</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">//销毁对象</span></span><br><span class="line">        <span class="keyword">while</span> (_start != _finish)</span><br><span class="line">            _allocator.destroy(--_finish);</span><br><span class="line">        _allocator.deallocate(_start, cap);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    _start = new_start;</span><br><span class="line">    _finish = _start + cap;</span><br><span class="line">    _end_of_storage = _start + new_cap;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span> &lt;<span class="class"><span class="keyword">class</span> <span class="title">T</span>&gt;</span></span><br><span class="line"><span class="class"><span class="title">void</span> <span class="title">display</span>(<span class="title">T</span> &amp; <span class="title">cont</span>)</span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">typename</span> T::iterator iter = cont.begin();</span><br><span class="line">    <span class="keyword">for</span> (; iter != cont.end(); ++iter)  </span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; *iter &lt;&lt; <span class="string">" "</span>;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="built_in">endl</span>; </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    My_vector&lt;<span class="keyword">int</span>&gt; vec;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">"capacity = "</span> &lt;&lt; vec.capacity() &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">"size = "</span> &lt;&lt; vec.size() &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line"></span><br><span class="line">    vec.push_back(<span class="number">1</span>);</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">"capacity = "</span> &lt;&lt; vec.capacity() &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">"size = "</span> &lt;&lt; vec.size() &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line"></span><br><span class="line">    vec.push_back(<span class="number">2</span>);</span><br><span class="line">    vec.push_back(<span class="number">3</span>);</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">"capacity = "</span> &lt;&lt; vec.capacity() &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">"size = "</span> &lt;&lt; vec.size() &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; vec[<span class="number">0</span>] &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line"></span><br><span class="line">    display(vec);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>说明：<br>这里使用allocator空间配置器来分配内存空间，主要是因为vector中所存放的对象本身需要创建(调用该对象的构造函数，将数据放入该存储空间中)，这就需要allocator的参与。同时allocator本身的实现是非常复杂的，并且也是非常高效的。<br>我们要vector中放入数据，如果空间存在，则直接创建对象；如果不存在，则需要先申请一块未初始化的空间，然后创建对象。析构vector时应该注意，不能直接直接销毁vector的空间，如果vector中存放的对象本身需要调用自身自定义的析构函数，这时直接销毁vector的空间，将会造成内存泄漏，所以应该先使用allocator提供的destroy方法析构vector中的对象，然后调用deallocate来销毁vector的空间。</p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -197,17 +221,17 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">继承</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">编程</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">多态</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">vector</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
@@ -220,74 +244,124 @@
 	</div>
 
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/08/09/vector的简单实现-利用allocator/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/08/08/三种继承方式对于基类成员的访问权限/" class="archive-article-date">
-  	<time datetime="2019-08-08T09:00:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-08</time>
-</a>
+<nav id="article-nav">
+  
+    <a href="/2019/09/14/APUE学习笔记-UNIXX基础知识/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          APUE学习笔记: UNIXX基础知识
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/08/09/leet-code-146-LRU题/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">leet_code_146_LRU题</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/08/08/三种继承方式对于基类成员的访问权限/">三种继承方式对于基类成员的访问权限</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C++</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">继承</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">访问权限</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/C//" class="article-tag-list-link color4">C++</a>
-        		</li>
-      		
-		</ul>
-	</div>
+        
+        
+    </div>
+</aside>
 
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+
   
   
-    </div></section>
+  
+  <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
+<script>
+  var cloudTieConfig = {
+    url: "http://yoursite.com/2019/08/09/vector的简单实现-利用allocator/", 
+    sourceId: "vector的简单实现-利用allocator",
+    productKey: "true",
+    target: "cloud-tie-wrapper"
+  };
+</script>
+<script src="//img1.cache.netease.com/f2e/tie/yun/sdk/loader.js"></script>
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -310,9 +384,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
