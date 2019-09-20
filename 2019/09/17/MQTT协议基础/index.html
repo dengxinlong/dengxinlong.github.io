@@ -6,19 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Tag: 刷题 | 爱吃青菜的咸鱼</title>
+  <title>MQTT协议基础 | 爱吃青菜的咸鱼</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="身处何方，不忘初心">
-<meta name="keywords" content="后端,C&#x2F;C++,开发者,程序猿,极客,编程,代码,开源,IT网站,Developer,Programmer,Coder,Geek,html,linux,用户体验">
-<meta property="og:type" content="website">
-<meta property="og:title" content="爱吃青菜的咸鱼">
-<meta property="og:url" content="http://yoursite.com/tags/刷题/index.html">
+  <meta name="description" content="简述MQTT协议是一种消息队列遥测传输协议，基于消息的发布/订阅的一种轻量级通讯协议，">
+<meta name="keywords" content="MQTT">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MQTT协议基础">
+<meta property="og:url" content="http://yoursite.com/2019/09/17/MQTT协议基础/index.html">
 <meta property="og:site_name" content="爱吃青菜的咸鱼">
-<meta property="og:description" content="身处何方，不忘初心">
+<meta property="og:description" content="简述MQTT协议是一种消息队列遥测传输协议，基于消息的发布/订阅的一种轻量级通讯协议，">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-09-17T02:48:19.448Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="爱吃青菜的咸鱼">
-<meta name="twitter:description" content="身处何方，不忘初心">
+<meta name="twitter:title" content="MQTT协议基础">
+<meta name="twitter:description" content="简述MQTT协议是一种消息队列遥测传输协议，基于消息的发布/订阅的一种轻量级通讯协议，">
   
     <link rel="alternative" href="/atom.xml" title="爱吃青菜的咸鱼" type="application/atom+xml">
   
@@ -158,79 +159,225 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-MQTT协议基础" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/08/09/leet-code-146-LRU题/" class="archive-article-date">
-  	<time datetime="2019-08-09T10:39:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-09</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/08/09/leet-code-146-LRU题/">leet_code_146_LRU题</a>
+    <h1 class="article-title" itemprop="name">
+      MQTT协议基础
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2019/09/17/MQTT协议基础/" class="archive-article-date">
+  	<time datetime="2019-09-17T01:22:58.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-17</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="简述"><a href="#简述" class="headerlink" title="简述"></a>简述</h4><p>MQTT协议是一种消息队列遥测传输协议，基于消息的发布/订阅的一种轻量级通讯协议，<a id="more"></a> 基于TCP/IP协议，运用在TCP/IP协议之上的一种协议。MQTT协议最大的优点就是可以以极少的代码和有限的带宽，为连接远程设备提供实时可靠的消息服务。作为一种低开销，低带宽占用的即时通讯协议，使其在物联网、小型设备、移动应用上面有着较为广泛的应用。</p>
+<h4 id="主要特性"><a href="#主要特性" class="headerlink" title="主要特性"></a>主要特性</h4><p>MQTT协议工作在低带宽、不可靠的网络远程传感器和控制设备通讯而设计的协议，主要有以下几种特性：</p>
+<blockquote>
+<p>使用发布/订阅的消息模式，提供一对多的消息发布，解除应用程序耦合<br>对负载内容屏蔽的消息传输<br>使用TCP/IP提供网络连接<br>三种消息发布服务质量：”至多一次”， “至少一次”，”只有一次”；<br>小型传输，协议传输的开销很小，因为MQTT协议的固定头部只有两个字节<br>使用Last Will和Testament特性通知有关各方客户端异常中断的机制  </p>
+</blockquote>
+<h4 id="MQTT协议原理"><a href="#MQTT协议原理" class="headerlink" title="MQTT协议原理"></a>MQTT协议原理</h4><h5 id="MQTT协议实现方式"><a href="#MQTT协议实现方式" class="headerlink" title="MQTT协议实现方式"></a>MQTT协议实现方式</h5><p>实现MQTT协议需要客户端和服务器端通讯完成，在通讯过程中，MQTT协议中有三种身份：发布者，订阅者，代理。其中消息的发布和订阅都是客户端，代理一般由服务器端来完成，同时，一个客户端既可以是发布者也可以是订阅者，二者之间不冲突。<br>MQTT传输的消息分为：主题(topic)和负载(payload)两部分：  </p>
+<blockquote>
+<p>Topic:可以理解为消息的类型，订阅者订阅后，就会收到该主题的消息内容<br>payload: 可以理解为消息的内容，指的是订阅者要具体使用的内容  </p>
+</blockquote>
+<h5 id="网络传输与应用消息"><a href="#网络传输与应用消息" class="headerlink" title="网络传输与应用消息"></a>网络传输与应用消息</h5><p>MQTT会构建底层网络传输，它将建立客户端到服务器端的连接，提供两者之间的一个有序、无损的、基于字节流的双向传输。当应用数据通过MQTT网络发送时，MQTT会把与之相关的服务质量(QoS)和主题名(Topic)向关联  </p>
+<h5 id="MQTT客户端"><a href="#MQTT客户端" class="headerlink" title="MQTT客户端"></a>MQTT客户端</h5><p>一个使用MQTT协议的应用程序或者设备，它总是建立到服务器端的连接。客户端可以：</p>
+<blockquote>
+<p>发布其他客户端可能订阅的消息<br>订阅其他客户端发布的消息<br>退订或者删除应用程序的消息<br>断开与服务器的连接  </p>
+</blockquote>
+<h5 id="MQTT服务器端"><a href="#MQTT服务器端" class="headerlink" title="MQTT服务器端"></a>MQTT服务器端</h5><p>MQTT服务器端称为“代理器”(broker),它是位于发布者和订阅者中间的，它可以：</p>
+<blockquote>
+<p>接收来自客户端的网络连接请求<br>接受客户端发布的应用消息<br>处理来自客户端的订阅和退订请求<br>向订阅的客户转发应用程序的消息  </p>
+</blockquote>
+<h5 id="MQTT协议中的订阅、主题、回话"><a href="#MQTT协议中的订阅、主题、回话" class="headerlink" title="MQTT协议中的订阅、主题、回话"></a>MQTT协议中的订阅、主题、回话</h5><ol>
+<li>订阅(Subscription)<br>订阅包含主题筛选器和最大服务质量。订阅会与一个回话关联。一个回话可以包含多个订阅。每一个回话中的每一个订阅都有一个不同的主题筛选器</li>
+<li>回话(Session)<br>每个客户端与服务器建立连接后就是一个回话，客户端和服务器之间会有状态交互，回话存在于一个网络之间，也可能在客户端和服务器之间跨越多个连续的网络连接 </li>
+<li>主题名(Topic Name)<br>连接到一个应用程序消息的标签，该标签与服务器的订阅相匹配。服务器会将消息发送给订阅所匹配标签的每一个客户端</li>
+<li>主题筛选器(Topic Filter)<br>一个对主题名通配符筛选器，在订阅表达式中使用，表示订阅所匹配到的多个主题  </li>
+<li>负载(Payload)<br>消息订阅者所具体接收的内容<h5 id="MQTT协议中的方法"><a href="#MQTT协议中的方法" class="headerlink" title="MQTT协议中的方法"></a>MQTT协议中的方法</h5>MQTT协议中定义了一些方法(也称之为动作)，来表示对确定资源所进行的操作。这个资源可以代表预先存在的数据或者动态生成的数据，这取决与服务器的实现。一般来说，资源指服务器中的文件或者输出。主要方法有：<blockquote>
+<p>Connect. 等待与服务器建立连接<br>Disconnect. 等待MQTT客户端完成所做的工作，并与服务器断开TCP/IP会话<br>Subscribe. 等待完成订阅<br>Unsubscribe. 等待服务器取消客户端的一个或者多个topics订阅<br>Publish. MQTT客户端发送消息请求，发送完成后返回应用程序线程</p>
+</blockquote>
+<h4 id="MQTT协议数据包结构"><a href="#MQTT协议数据包结构" class="headerlink" title="MQTT协议数据包结构"></a>MQTT协议数据包结构</h4></li>
+</ol>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C++</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">刷题</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">leetcode</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">MQTT</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/leetcode//" class="article-tag-list-link color4">leetcode</a>
+        			<a href="/categories/协议//" class="article-tag-list-link color3">协议</a>
         		</li>
       		
 		</ul>
 	</div>
 
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/09/17/MQTT协议基础/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2019/09/17/二分查找法思想模板/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          二分查找法思想模板
+        
+      </div>
+    </a>
   
   
-    </div></section>
+    <a href="/2019/09/14/APUE学习笔记：文件I-O/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">APUE学习笔记: UNIXX基础知识</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+  
+  
+  <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
+<script>
+  var cloudTieConfig = {
+    url: "http://yoursite.com/2019/09/17/MQTT协议基础/", 
+    sourceId: "MQTT协议基础",
+    productKey: "true",
+    target: "cloud-tie-wrapper"
+  };
+</script>
+<script src="//img1.cache.netease.com/f2e/tie/yun/sdk/loader.js"></script>
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -253,9 +400,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
