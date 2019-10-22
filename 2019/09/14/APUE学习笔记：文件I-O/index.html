@@ -6,20 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>APUE学习笔记: UNIXX基础知识 | 爱吃青菜的咸鱼</title>
+  <title>APUE学习笔记: 文件IO | 爱吃青菜的咸鱼</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="文件描述符对于内核而言，所有打开的文件都是通过文件描述符引用。文件描述符是一个非负整数，当打开一个现有文件或者创建一个文件时，内核向进程返回一个文件描述符。这时，就可以通过该文件描述符对该文件进行读写操作了。按照惯例，一般情况下，文件描述符0,1,2与标准输入，标准输出，标准错误相关联；同时，为了可读性，文件描述符0用STDIN_FILENO, 1用STDOUT_FILENO, 2用STDERR_">
+  <meta name="description" content="文件描述符对于内核而言，所有打开的文件都是通过文件描述符引用。文件描述符是一个非负整数，当打开一个现有文件或者创建一个文件时，">
 <meta name="keywords" content="APUE">
 <meta property="og:type" content="article">
-<meta property="og:title" content="APUE学习笔记: UNIXX基础知识">
+<meta property="og:title" content="APUE学习笔记: 文件IO">
 <meta property="og:url" content="http://yoursite.com/2019/09/14/APUE学习笔记：文件I-O/index.html">
 <meta property="og:site_name" content="爱吃青菜的咸鱼">
-<meta property="og:description" content="文件描述符对于内核而言，所有打开的文件都是通过文件描述符引用。文件描述符是一个非负整数，当打开一个现有文件或者创建一个文件时，内核向进程返回一个文件描述符。这时，就可以通过该文件描述符对该文件进行读写操作了。按照惯例，一般情况下，文件描述符0,1,2与标准输入，标准输出，标准错误相关联；同时，为了可读性，文件描述符0用STDIN_FILENO, 1用STDOUT_FILENO, 2用STDERR_">
+<meta property="og:description" content="文件描述符对于内核而言，所有打开的文件都是通过文件描述符引用。文件描述符是一个非负整数，当打开一个现有文件或者创建一个文件时，">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-09-15T12:54:42.903Z">
+<meta property="og:updated_time" content="2019-09-22T15:27:10.583Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="APUE学习笔记: UNIXX基础知识">
-<meta name="twitter:description" content="文件描述符对于内核而言，所有打开的文件都是通过文件描述符引用。文件描述符是一个非负整数，当打开一个现有文件或者创建一个文件时，内核向进程返回一个文件描述符。这时，就可以通过该文件描述符对该文件进行读写操作了。按照惯例，一般情况下，文件描述符0,1,2与标准输入，标准输出，标准错误相关联；同时，为了可读性，文件描述符0用STDIN_FILENO, 1用STDOUT_FILENO, 2用STDERR_">
+<meta name="twitter:title" content="APUE学习笔记: 文件IO">
+<meta name="twitter:description" content="文件描述符对于内核而言，所有打开的文件都是通过文件描述符引用。文件描述符是一个非负整数，当打开一个现有文件或者创建一个文件时，">
   
     <link rel="alternative" href="/atom.xml" title="爱吃青菜的咸鱼" type="application/atom+xml">
   
@@ -166,7 +166,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      APUE学习笔记: UNIXX基础知识
+      APUE学习笔记: 文件IO
     </h1>
   
 
@@ -179,7 +179,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h4 id="文件描述符"><a href="#文件描述符" class="headerlink" title="文件描述符"></a>文件描述符</h4><p>对于内核而言，所有打开的文件都是通过文件描述符引用。文件描述符是一个非负整数，当打开一个现有文件或者创建一个文件时，内核向进程返回一个文件描述符。这时，就可以通过该文件描述符对该文件进行读写操作了。<br>按照惯例，一般情况下，文件描述符0,1,2与标准输入，标准输出，标准错误相关联；同时，为了可读性，文件描述符0用STDIN_FILENO, 1用STDOUT_FILENO, 2用STDERR_FILENO来表示，实质上这三者就是0,1,2数字。</p>
+        <h4 id="文件描述符"><a href="#文件描述符" class="headerlink" title="文件描述符"></a>文件描述符</h4><p>对于内核而言，所有打开的文件都是通过文件描述符引用。文件描述符是一个非负整数，当打开一个现有文件或者创建一个文件时，<a id="more"></a> 内核向进程返回一个文件描述符。这时，就可以通过该文件描述符对该文件进行读写操作了。<br>按照惯例，一般情况下，文件描述符0,1,2与标准输入，标准输出，标准错误相关联；同时，为了可读性，文件描述符0用STDIN_FILENO, 1用STDOUT_FILENO, 2用STDERR_FILENO来表示，实质上这三者就是0,1,2数字。</p>
 <h4 id="函数open和openat"><a href="#函数open和openat" class="headerlink" title="函数open和openat"></a>函数open和openat</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">open</span><span class="params">(<span class="keyword">const</span> <span class="keyword">char</span> * path, <span class="keyword">int</span> oflag, ...<span class="comment">/*mode_t mode */</span>)</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">openat</span><span class="params">(<span class="keyword">int</span> fd, <span class="keyword">const</span> <span class="keyword">char</span> * path, <span class="keyword">int</span> oflag, ...<span class="comment">/*mode_t mode */</span>)</span></span></span><br></pre></td></tr></table></figure>
 
 <p>上面两个函数都是成功返回文件描述符，失败返回-1；参考APUE-p50页  </p>
@@ -319,7 +319,7 @@
   
   
     <a href="/2019/09/14/APUE学习笔记-UNIX基础知识/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">APUE学习笔记: UNIXX基础知识</div>
+      <div class="article-nav-title">APUE学习笔记: UNIX基础知识</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -456,11 +456,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">CJSON</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">APUE</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">MQTT</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">effective C++</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -476,7 +484,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">二分法</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">编程</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">remove</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -492,19 +508,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">二分法</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">remove</a>
+                <a href="javascript:void(0)" class="js-tag color4">迭代器</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">set</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">迭代器</a>
               </li>
              
               <li class="article-tag-list-item">

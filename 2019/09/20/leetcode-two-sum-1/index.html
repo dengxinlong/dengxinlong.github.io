@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="爱吃青菜的咸鱼">
 <meta property="og:description" content="题目描述给定一个整数数组 nums 和一个目标值 target，请你在该数组中找出和为目标值的那 两个 整数，并返回他们的数组下标。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-09-20T12:55:40.841Z">
+<meta property="og:updated_time" content="2019-09-20T13:09:48.777Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="leetcode: two_sum_1">
 <meta name="twitter:description" content="题目描述给定一个整数数组 nums 和一个目标值 target，请你在该数组中找出和为目标值的那 两个 整数，并返回他们的数组下标。">
@@ -190,7 +190,10 @@
 <h4 id="解法二"><a href="#解法二" class="headerlink" title="解法二"></a>解法二</h4><p>这里利用了map的结构特性，在map中查找一个元素的时间是o(logN)，如果是undered_map，时间复杂度是o(1)，所以利用undered_map来，所以总的时间复杂度是o(n)，立刻优化了好多。这里说一下思路，利用undered_map数据结构，该结构的底层实现是hash，所以查找一个元素的时间复杂度是O(1)，由于需要往该结构(设该结构名为index_val)中放入数据，这时需要遍历整个数组，所以整个算法的时间复杂度是O(n)，建立hash结构时，key为数组中的元素，这时可以直接查找符合条件的值(target - nums[i])，因为找到之后需要返回这两个元素的下标，所以，hash结构中的value是元素的下标值。  </p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    Solution() &#123;&#125;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; twoSum(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; &amp; nums, <span class="keyword">int</span> target) </span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (nums.size() &lt;= <span class="number">1</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//建立索引和值的hash_map结构</span></span><br><span class="line">        <span class="built_in">unordered_map</span>&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt; index_val;</span><br><span class="line">        <span class="comment">//map&lt;int, int&gt; index_val;</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.size(); ++i)</span><br><span class="line">        &#123;</span><br><span class="line">            index_val.insert(<span class="built_in">std</span>::make_pair(nums[i], i));</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.size(); ++i)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">auto</span> iter = index_val.find(target - nums[i]);</span><br><span class="line">            <span class="keyword">if</span> (iter != index_val.end() &amp;&amp; iter-&gt;second != i)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; vec&#123;i, iter-&gt;second&#125;;</span><br><span class="line">                <span class="keyword">return</span> vec;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
-<p>上面的算法不能理解，其实就是利用了target和hash结构查找元素的时间复杂度非常低，这里可以看见hash结构的优势以及别样的用法。从上面的代码中可以知道，我们是提前建立好了hash，往hash结构中插入了数据，这时是否可以考虑优化代码，</p>
+<p>上面的算法不难理解，其实就是利用了target和hash结构查找元素的时间复杂度非常低，这里可以看见hash结构的优势以及别样的用法。从上面的代码中可以知道，我们是提前建立好了hash，往hash结构中插入了数据，这时是否可以考虑优化代码，不需要等hash结构完全建立好，在建立hash_map的同时查找我们需要的元素是否在hash_map中，如果在则直接返回；如果不在则继续建立hash_map结构，最后总会找到满足条件的下标。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    Solution() &#123;&#125;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; twoSum(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; &amp; nums, <span class="keyword">int</span> target) </span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (nums.size() &lt;= <span class="number">1</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//建立索引和值的hash_map结构</span></span><br><span class="line">        <span class="built_in">unordered_map</span>&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt; index_val;</span><br><span class="line">        <span class="comment">//map&lt;int, int&gt; index_val;</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.size(); ++i)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">auto</span> iter = index_val.find(target - nums[i]);</span><br><span class="line">            <span class="keyword">if</span> (iter != index_val.end())</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; vec&#123;i, iter-&gt;second&#125;;</span><br><span class="line">                <span class="keyword">return</span> vec;</span><br><span class="line">            &#125;</span><br><span class="line">            index_val.insert(<span class="built_in">std</span>::make_pair(nums[i], i));</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>从上面的代码可以看出来，解法二中的两份代码进行比较会发现，在循环中的if条件判断中，最后一份代码没有判断 iter-&gt;second != i, 这是因为我们在当前i下标的元素建立hash_map之前进行查找的，查找目标元素是否在我们当前已经建立好的hash_map中；这时我们是不会重复利用数组的元素的，所以不需要该判断条件。该代码表示，不管怎么样，如果存在符合条件的元素，最后是总能找到的。</p>
 
       
 
@@ -294,6 +297,15 @@
 
   
 <nav id="article-nav">
+  
+    <a href="/2019/09/22/leetcode-pascal-triangle-II-119/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          leetcode: pascal_triangle_II_119
+        
+      </div>
+    </a>
   
   
     <a href="/2019/09/17/二分查找法思想模板/" id="article-nav-older" class="article-nav-link-wrap">
@@ -434,11 +446,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">CJSON</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">APUE</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">MQTT</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">effective C++</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -454,7 +474,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">二分法</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">编程</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">remove</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -470,19 +498,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">二分法</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">remove</a>
+                <a href="javascript:void(0)" class="js-tag color4">迭代器</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">set</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">迭代器</a>
               </li>
              
               <li class="article-tag-list-item">

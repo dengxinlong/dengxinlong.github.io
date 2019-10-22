@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>友元 &amp;&amp; 运算符重载 | 爱吃青菜的咸鱼</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="友元什么是友元？友元的存在形式有？友元有何特点？">
+  <meta name="description" content="友元友元的概念，友元的存在形式和友元的特点">
 <meta name="keywords" content="C++,友元,运算符重载">
 <meta property="og:type" content="article">
 <meta property="og:title" content="友元 &amp;&amp; 运算符重载">
 <meta property="og:url" content="http://yoursite.com/2019/08/08/友元-运算符重载/index.html">
 <meta property="og:site_name" content="爱吃青菜的咸鱼">
-<meta property="og:description" content="友元什么是友元？友元的存在形式有？友元有何特点？">
+<meta property="og:description" content="友元友元的概念，友元的存在形式和友元的特点">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-08-08T07:53:12.330Z">
+<meta property="og:updated_time" content="2019-09-23T09:42:16.348Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="友元 &amp;&amp; 运算符重载">
-<meta name="twitter:description" content="友元什么是友元？友元的存在形式有？友元有何特点？">
+<meta name="twitter:description" content="友元友元的概念，友元的存在形式和友元的特点">
   
     <link rel="alternative" href="/atom.xml" title="爱吃青菜的咸鱼" type="application/atom+xml">
   
@@ -179,17 +179,17 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="友元"><a href="#友元" class="headerlink" title="友元"></a>友元</h3><h4 id="什么是友元？友元的存在形式有？友元有何特点？"><a href="#什么是友元？友元的存在形式有？友元有何特点？" class="headerlink" title="什么是友元？友元的存在形式有？友元有何特点？"></a>什么是友元？友元的存在形式有？友元有何特点？</h4><a id="more"></a>
+        <h3 id="友元"><a href="#友元" class="headerlink" title="友元"></a>友元</h3><h4 id="友元的概念，友元的存在形式和友元的特点"><a href="#友元的概念，友元的存在形式和友元的特点" class="headerlink" title="友元的概念，友元的存在形式和友元的特点"></a>友元的概念，友元的存在形式和友元的特点</h4><a id="more"></a>
 <p> C++是由C语言继承而来的，所以C++虽然是面向对象的语言，但是仍然要考虑C语言程序员面向结构化编程的习惯，这就产生了友元，友元就是允许非类的成员函数的函数访问该类的private成员，我们知道，一个普通函数要访问一个类中的private成员，只有通过该类的public成员间接的访问，这将导致代码书写的繁琐。要成为友元函数，只需要在该类中声明该函数，同时在前面加上friend关键字即可。<br>友元在一定程度上破坏了类的封装性，但在一定程度上减少了编程的复杂性，这是一把双刃剑<br>友元的特点是：单向的，不具备传递性，不能被子类继承</p>
-<h4 id="运算符重载的原则是什么？有哪些规则？"><a href="#运算符重载的原则是什么？有哪些规则？" class="headerlink" title="运算符重载的原则是什么？有哪些规则？"></a>运算符重载的原则是什么？有哪些规则？</h4><p>运算符重载的原则：用户自定义的类类型的操作要在形式上与内置类型保持一致，不要和内置类型的操作定义完全不同的重载运算符，这将导致代码的可读性非常差。<br>重载运算符限制在C++中已有的运算符范围的允许重载的运算符中，不能创建新的运算符<br>运算符的重载实质上是函数的重载，所以编译器在选择运算符重载函数时遵循普通重载函数的选择原则。<br>重载之后的运算符不能改变运算符的优先级和结合性<br>运算符重载是针对新类型数据的实际需要对原有运算符的适当改造，重载的功能与原有功能类似，避免没有目的的使用重载运算符<br> 运算符重载必须是具备一个类类型或枚举类型的的操作数，不能重载内置类型<br>&amp;&amp;, || 运算符重载之后不具备短路特性(不建议重载&amp;&amp; 和 || 运算符)  </p>
-<h4 id="不能重载的运算符有哪几个？"><a href="#不能重载的运算符有哪几个？" class="headerlink" title="不能重载的运算符有哪几个？"></a>不能重载的运算符有哪几个？</h4><ul>
+<h4 id="运算符重载的原则和规则"><a href="#运算符重载的原则和规则" class="headerlink" title="运算符重载的原则和规则"></a>运算符重载的原则和规则</h4><p>运算符重载的原则：用户自定义的类类型的操作要在形式上与内置类型保持一致，不要和内置类型的操作定义完全不同的重载运算符，这将导致代码的可读性非常差。<br>重载运算符限制在C++中已有的运算符范围的允许重载的运算符中，不能创建新的运算符<br>运算符的重载实质上是函数的重载，所以编译器在选择运算符重载函数时遵循普通重载函数的选择原则。<br>重载之后的运算符不能改变运算符的优先级和结合性<br>运算符重载是针对新类型数据的实际需要对原有运算符的适当改造，重载的功能与原有功能类似，避免没有目的的使用重载运算符<br> 运算符重载必须是具备一个类类型或枚举类型的的操作数，不能重载内置类型<br>&amp;&amp;, || 运算符重载之后不具备短路特性(不建议重载&amp;&amp; 和 || 运算符)  </p>
+<h4 id="不能重载的运算符"><a href="#不能重载的运算符" class="headerlink" title="不能重载的运算符"></a>不能重载的运算符</h4><ul>
 <li>域作用域运算符    </li>
 <li>成员访问运算符</li>
 <li>sizeof表达式</li>
 <li>?:三元运算符</li>
 <li>成员指针运算符(成员指针运算符是一种比较特殊的运算符，这种指针指向某个类的特定类型的成员，但却不确切指向该类的中某个成员)</li>
 </ul>
-<h4 id="运算符重载的形式有哪几种？"><a href="#运算符重载的形式有哪几种？" class="headerlink" title="运算符重载的形式有哪几种？"></a>运算符重载的形式有哪几种？</h4><ul>
+<h4 id="运算符重载的形式"><a href="#运算符重载的形式" class="headerlink" title="运算符重载的形式"></a>运算符重载的形式</h4><ul>
 <li>重载为普通函数<br>推荐重载为普通函数的运算符:      </li>
 </ul>
 <p>+，-，*，/，%<br>当类成员要是public, 如果出现private，则应该重载为友元函数</p>
@@ -201,7 +201,7 @@
 <li>重载为类的友元函数<br>推荐重载为友元函数的运算符：        </li>
 </ul>
 <p>+, -, <em>, /, &gt;&gt;, &lt;&lt;<br>*</em>说明**：<br>&lt;&lt;, &gt;&gt; 输入输出运算符一定要重载为友元函数是因为该操作符的左操作数的第一个参数不是需要重载运算符的类的对象，因为重载成员函数的左操作数的第一个参数必须是该类的对象，而 &lt;&lt;, &gt;&gt; 运算符不是，所以必须重载为友元函数</p>
-<h4 id="自增运算符的前置形式和后置形式的区别-返回值类型分别是什么？"><a href="#自增运算符的前置形式和后置形式的区别-返回值类型分别是什么？" class="headerlink" title="自增运算符的前置形式和后置形式的区别?返回值类型分别是什么？"></a>自增运算符的前置形式和后置形式的区别?返回值类型分别是什么？</h4><ul>
+<h4 id="自增运算符的前置形式和后置形式的区别以及返回值类型"><a href="#自增运算符的前置形式和后置形式的区别以及返回值类型" class="headerlink" title="自增运算符的前置形式和后置形式的区别以及返回值类型"></a>自增运算符的前置形式和后置形式的区别以及返回值类型</h4><ul>
 <li>前置自增运算符(++a)，表示先对a自加1，而后再使用a作为其他用处  </li>
 <li>后置自增运算符(a++), 表示先使用a作为其他用处，而后才对a加1  </li>
 <li>对于一个类的++运算符重载，前置形式重载函数返回的++对象的引用，因为是直接先对该对象++, 所以直接返回该对象的引用即可  </li>
@@ -487,11 +487,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">CJSON</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">APUE</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">MQTT</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">effective C++</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -507,7 +515,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">二分法</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">编程</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">remove</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -523,19 +539,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">二分法</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">remove</a>
+                <a href="javascript:void(0)" class="js-tag color4">迭代器</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">set</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">迭代器</a>
               </li>
              
               <li class="article-tag-list-item">

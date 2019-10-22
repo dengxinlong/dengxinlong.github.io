@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>三种继承方式对于基类成员的访问权限 | 爱吃青菜的咸鱼</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="三种继承方式对于基类成员的访问权限是怎样的？对于C++的继承方式共有三种：">
+  <meta name="description" content="三种继承方式对于基类成员的访问权限对于C++的继承方式共有三种：">
 <meta name="keywords" content="C++,继承,访问权限">
 <meta property="og:type" content="article">
 <meta property="og:title" content="三种继承方式对于基类成员的访问权限">
 <meta property="og:url" content="http://yoursite.com/2019/08/08/三种继承方式对于基类成员的访问权限/index.html">
 <meta property="og:site_name" content="爱吃青菜的咸鱼">
-<meta property="og:description" content="三种继承方式对于基类成员的访问权限是怎样的？对于C++的继承方式共有三种：">
+<meta property="og:description" content="三种继承方式对于基类成员的访问权限对于C++的继承方式共有三种：">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-08-08T09:02:24.523Z">
+<meta property="og:updated_time" content="2019-09-23T09:41:09.502Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="三种继承方式对于基类成员的访问权限">
-<meta name="twitter:description" content="三种继承方式对于基类成员的访问权限是怎样的？对于C++的继承方式共有三种：">
+<meta name="twitter:description" content="三种继承方式对于基类成员的访问权限对于C++的继承方式共有三种：">
   
     <link rel="alternative" href="/atom.xml" title="爱吃青菜的咸鱼" type="application/atom+xml">
   
@@ -179,7 +179,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="三种继承方式对于基类成员的访问权限是怎样的？"><a href="#三种继承方式对于基类成员的访问权限是怎样的？" class="headerlink" title="三种继承方式对于基类成员的访问权限是怎样的？"></a>三种继承方式对于基类成员的访问权限是怎样的？</h3><p>对于C++的继承方式共有三种：</p>
+        <h3 id="三种继承方式对于基类成员的访问权限"><a href="#三种继承方式对于基类成员的访问权限" class="headerlink" title="三种继承方式对于基类成员的访问权限"></a>三种继承方式对于基类成员的访问权限</h3><p>对于C++的继承方式共有三种：</p>
 <a id="more"></a>
 <h4 id="public继承"><a href="#public继承" class="headerlink" title="public继承"></a>public继承</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="built_in">std</span>::<span class="built_in">cout</span>;</span><br><span class="line"><span class="keyword">using</span> <span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//定义一个基类</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Car</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    Car()</span><br><span class="line">    : _category(<span class="literal">nullptr</span>)</span><br><span class="line">    , _function(<span class="literal">nullptr</span>)</span><br><span class="line">    &#123;&#125;</span><br><span class="line">    </span><br><span class="line">    Car(<span class="keyword">const</span> <span class="keyword">char</span> * category, <span class="keyword">const</span> <span class="keyword">char</span> * function)</span><br><span class="line">    : _category(<span class="keyword">new</span> <span class="keyword">char</span>[<span class="built_in">strlen</span>(category) + <span class="number">1</span>]())</span><br><span class="line">    , _function(<span class="keyword">new</span> <span class="keyword">char</span>[<span class="built_in">strlen</span>(function) + <span class="number">1</span>]())</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">strcpy</span>(_category, category);</span><br><span class="line">        <span class="built_in">strcpy</span>(_function, function);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">print</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; <span class="string">"The car's category is "</span> &lt;&lt; _category &lt;&lt; <span class="string">" and funtion is "</span> &lt;&lt; _function &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    ~Car()</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (_category)</span><br><span class="line">            <span class="keyword">delete</span> [] _category;</span><br><span class="line">        <span class="keyword">if</span> (_function)</span><br><span class="line">            <span class="keyword">delete</span> _function;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line"><span class="keyword">protected</span>:</span><br><span class="line">    <span class="keyword">int</span> Protected_val = <span class="number">10</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="keyword">char</span> * _category;</span><br><span class="line">    <span class="keyword">char</span> * _function;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">//定义一个派生类</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Little_car</span></span></span><br><span class="line"><span class="class">:</span> <span class="keyword">public</span> Car</span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    Little_car(<span class="keyword">const</span> <span class="keyword">char</span> * category, <span class="keyword">const</span> <span class="keyword">char</span> * function, <span class="keyword">const</span> <span class="keyword">char</span> * name, <span class="keyword">float</span> price)          <span class="comment">//定义构造函数</span></span><br><span class="line">    : Car(category, function)</span><br><span class="line">    , _name(<span class="keyword">new</span> <span class="keyword">char</span>[<span class="built_in">strlen</span>(name) + <span class="number">1</span>]())</span><br><span class="line">    , _price(price)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">strcpy</span>(_name, name);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">print</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        Car::print();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    ~Little_car()</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (_name)</span><br><span class="line">            <span class="keyword">delete</span> [] _name;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="keyword">char</span> * _name;            <span class="comment">//车的名字</span></span><br><span class="line">    <span class="keyword">float</span> _price;           <span class="comment">//车的价格</span></span><br><span class="line"></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">//Car car("little car", "self-driving");</span></span><br><span class="line">    <span class="comment">//car.print();</span></span><br><span class="line"></span><br><span class="line">    <span class="function">Little_car <span class="title">mycar</span><span class="params">(<span class="string">"little car"</span>, <span class="string">"self-driving"</span>, <span class="string">"BMW"</span>, <span class="number">6666</span>)</span></span>;</span><br><span class="line">    mycar.print();</span><br><span class="line">    </span><br><span class="line">    mycar.Car::print();</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//error</span></span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; mycar.Car::Protected_val &lt;&lt; <span class="built_in">endl</span>;   </span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
@@ -225,7 +225,7 @@
 <li>使用private方式继承时，基类非私有成员，在派生类内部的访问权限都是private型</li>
 </ul>
 <hr>
-<h3 id="继承中有哪些内容是不能进行继承的？"><a href="#继承中有哪些内容是不能进行继承的？" class="headerlink" title="继承中有哪些内容是不能进行继承的？"></a>继承中有哪些内容是不能进行继承的？</h3><ul>
+<h3 id="另：继承中有哪些内容是不能进行继承的"><a href="#另：继承中有哪些内容是不能进行继承的" class="headerlink" title="另：继承中有哪些内容是不能进行继承的"></a>另：继承中有哪些内容是不能进行继承的</h3><ul>
 <li>友元</li>
 <li>基类的构造函数</li>
 <li>析构函数</li>
@@ -503,11 +503,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">CJSON</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">APUE</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">MQTT</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">effective C++</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -523,7 +531,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">二分法</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">编程</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">remove</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -539,19 +555,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">二分法</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">remove</a>
+                <a href="javascript:void(0)" class="js-tag color4">迭代器</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">set</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">迭代器</a>
               </li>
              
               <li class="article-tag-list-item">
